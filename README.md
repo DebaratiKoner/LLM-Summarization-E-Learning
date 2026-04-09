@@ -68,5 +68,3 @@ Modern AI summarization systems often use structured prompting and model APIs to
 *  Quiz generation from summaries
 *  Cloud-based scalable backend
 *  Mobile-friendly version
-[1]: https://vercel.com/kb/guide/what-is-a-large-language-model?utm_source=chatgpt.com "What is a Large Language Model (LLM)?"
-[2]: https://vercel.com/academy/ai-sdk/automatic-summarization?utm_source=chatgpt.com "Automatic Summarization | Vercel Academy"
