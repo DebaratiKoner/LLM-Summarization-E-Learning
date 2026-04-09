@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="page">
+        <section class="hero compact">
+            <p class="eyebrow">Results</p>
+            <h1>Learning Output</h1>
+            <p class="lead">{{ source_label }}</p>
+        </section>
+
+        <section class="panel">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="messages">
+                        {% for category, message in messages %}
+                            <div class="message {{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <div class="result-meta">
+                <span class="badge">{{ learner_type }} learner</span>
+                <span class="badge">{{ processed_input_type }}</span>
+                {% if prediction %}
+                    <span class="badge subtle">{{ prediction }}</span>
+                {% endif %}
+            </div>
+
+            {% if learner_type == "Theory" %}
+                <h2>Summary</h2>
+                <div class="card prose">{{ summary }}</div>
+            {% elif learner_type == "Audio" %}
+                <h2>Audio Summary</h2>
+                <div class="card">
+                    {% if audio_b64 %}
+                        <audio controls class="audio-player">
+                            <source src="data:audio/mpeg;base64,{{ audio_b64 }}" type="audio/mpeg">
+                        </audio>
+                    {% elif audio_error %}
+                        <p>{{ audio_error }}</p>
+                    {% endif %}
+                    <details>
+                        <summary>Show summary text</summary>
+                        <div class="prose">{{ summary }}</div>
+                    </details>
+                </div>
+            {% else %}
+                <h2>Visual Learning</h2>
+                <div class="card stack">
+                    <div class="visual-header">
+                        <div>
+                            <h3>Summary</h3>
+                            <div class="prose">{{ summary }}</div>
+                        </div>
+
+                        <div class="visual-links">
+                            {% if processed_video_url or related_video_url %}
+                                <div class="resource-card accent">
+                                    <h3>Topic Video</h3>
+                                    <p>Open the attached explanation for a guided walkthrough.</p>
+                                    <a class="inline-link" href="{{ processed_video_url or related_video_url }}" target="_blank" rel="noreferrer">
+                                        Watch related video
+                                    </a>
+                                </div>
+                            {% endif %}
+
+                            {% if processed_image_b64 %}
+                                <div class="resource-card">
+                                    <h3>Reference Image</h3>
+                                    <img
+                                        class="uploaded-image"
+                                        src="data:{{ processed_image_mime }};base64,{{ processed_image_b64 }}"
+                                        alt="Uploaded topic image"
+                                    >
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                {% if visual_assets %}
+                    <h3>Professional Visual Pack</h3>
+                    <div class="visual-pack">
+                        {% if visual_assets.dashboard %}
+                            <div class="resource-card large">
+                                <h4>Dashboard</h4>
+                                <img class="slide-frame" src="data:image/png;base64,{{ visual_assets.dashboard }}" alt="Visual dashboard">
+                            </div>
+                        {% endif %}
+                        {% if visual_assets.chart %}
+                            <div class="resource-card">
+                                <h4>Chart</h4>
+                                <img class="slide-frame" src="data:image/png;base64,{{ visual_assets.chart }}" alt="Concept chart">
+                            </div>
+                        {% endif %}
+                        {% if visual_assets.concept_map %}
+                            <div class="resource-card">
+                                <h4>Concept Map</h4>
+                                <img class="slide-frame" src="data:image/png;base64,{{ visual_assets.concept_map }}" alt="Concept map">
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endif %}
+
+                {% if visual_slides %}
+                    <h3>Visual Learning Slides</h3>
+                    <div class="slide-grid">
+                        {% for frame in visual_slides %}
+                            <img class="slide-frame" src="data:image/png;base64,{{ frame }}" alt="Generated learning slide {{ loop.index }}">
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endif %}
+        </section>
+
+        <section class="panel">
+            <h2>Questions Section</h2>
+            <form method="POST" action="{{ url_for('generate_questions_route') }}" class="stack">
+                <div class="grid three">
+                    <label>
+                        <span>Question Type</span>
+                        <select name="question_type">
+                            <option value="MCQ" {% if question_type == "MCQ" %}selected{% endif %}>MCQ</option>
+                            <option value="Broad Questions" {% if question_type == "Broad Questions" %}selected{% endif %}>Broad Questions</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        <span>Difficulty</span>
+                        <select name="difficulty">
+                            <option value="Easy" {% if difficulty == "Easy" %}selected{% endif %}>Easy</option>
+                            <option value="Medium" {% if difficulty == "Medium" %}selected{% endif %}>Medium</option>
+                            <option value="Hard" {% if difficulty == "Hard" %}selected{% endif %}>Hard</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        <span>Number of Questions</span>
+                        <input type="number" name="num_questions" min="1" max="10" value="{{ num_questions }}">
+                    </label>
+                </div>
+
+                <div class="actions">
+                    <button type="submit" class="primary">Generate Questions</button>
+                </div>
+            </form>
+
+            {% if quiz_data %}
+                <form method="POST" action="{{ url_for('submit_mcq') }}" class="quiz-form">
+                    {% for item in quiz_data %}
+                        {% set question_index = loop.index0 %}
+                        <div class="question-card">
+                            <h3>Q{{ loop.index }}. {{ item.question }}</h3>
+                            <div class="options">
+                                {% for option in item.options %}
+                                    {% set option_letter = option[0] %}
+                                    <label class="option-row">
+                                        <input type="radio" name="answer_{{ question_index }}" value="{{ option_letter }}" required>
+                                        <span>{{ option }}</span>
+                                    </label>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <button type="submit" class="primary">Submit Answers</button>
+                </form>
+            {% endif %}
+
+            {% if quiz_score is not none %}
+                <div class="card score-card">
+                    <p><strong>Score:</strong> {{ quiz_score }}/{{ quiz_data|length }}</p>
+                    <p><strong>Reward Points:</strong> {{ quiz_reward }}</p>
+                    <p>Reward Formula: {{ quiz_score }} correct answers x {{ points_per_question }} points = {{ quiz_reward }}</p>
+                </div>
+            {% endif %}
+
+            {% if broad_questions %}
+                <form method="POST" action="{{ url_for('submit_broad') }}" class="quiz-form">
+                    {% for question in broad_questions %}
+                        <div class="question-card">
+                            <h3>Q{{ loop.index }}. {{ question }}</h3>
+                            <textarea name="broad_answer_{{ loop.index0 }}" rows="6" placeholder="Write your answer here..." required></textarea>
+                        </div>
+                    {% endfor %}
+                    <button type="submit" class="primary">Evaluate Answers</button>
+                </form>
+            {% endif %}
+
+            {% if broad_score is not none %}
+                <div class="card score-card">
+                    <p><strong>Score:</strong> {{ broad_score }}/{{ broad_questions|length }}</p>
+                    <p><strong>Reward Points:</strong> {{ broad_reward }}</p>
+                    <p>Reward Formula: {{ broad_score }} correct answers x {{ points_per_question }} points = {{ broad_reward }}</p>
+                    {% for item in broad_results %}
+                        <p>
+                            <strong>Q{{ loop.index }}:</strong>
+                            {% if item.score == 1 %}Accepted{% else %}Needs improvement{% endif %}
+                        </p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </section>
+
+        <div class="page-actions">
+            <a class="secondary-link" href="{{ url_for('index') }}">Back to input</a>
+            <form method="POST" action="{{ url_for('reset') }}">
+                <button type="submit" class="ghost">Reset Session</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

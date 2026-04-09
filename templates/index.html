@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APSG Learning Studio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body data-has-output="{{ 'true' if has_output else 'false' }}" data-open-chat-widget="{{ 'true' if open_chat_widget else 'false' }}" data-view-section="{{ view_section }}">
+    <header class="site-header">
+        <div class="nav-shell">
+            <a href="#home" class="brand">APSG</a>
+            <nav class="site-nav">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#analysis">Analysis</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero page-section" id="home">
+            <div class="shell hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">Adaptive Personalized Summarization and Gamification</p>
+                    <h1>APSG transforms study material into a smarter learning system.</h1>
+                    <p class="lead">
+                        APSG stands for Adaptive Personalized Summaries Gamification. It converts notes, PDFs, videos, audio,
+                        and images into academically structured summaries, topic-aware visuals, saved learning history,
+                        points, badges, and a built-in assistant for guided revision.
+                    </p>
+                    <p class="section-copy">
+                        The platform is designed to support classroom-quality presentation as well as self-paced learning.
+                        Instead of forcing all students into a single format, APSG adapts the output to theory-focused,
+                        audio-based, and visual learning preferences while keeping the experience organized and measurable.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#analysis" class="cta-link">Open Analysis</a>
+                        <a href="#about" class="ghost-link">Explore Features</a>
+                    </div>
+                    <div class="hero-metrics">
+                        <article class="metric-card">
+                            <strong>4</strong>
+                            <span>input modes for notes, media, and visuals</span>
+                        </article>
+                        <article class="metric-card">
+                            <strong>3</strong>
+                            <span>learning styles tuned for theory, audio, and visual revision</span>
+                        </article>
+                        <article class="metric-card">
+                            <strong>1</strong>
+                            <span>connected workspace for summary, quiz, visuals, and chatbot support</span>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="hero-showcase">
+                    <div class="hero-card hero-card-primary">
+                        <p class="hero-micro">Smart Analysis Workspace</p>
+                        <h3>One elegant place for summary, visuals, history, and guided learning.</h3>
+                        <p>Designed for project demos, student revision, and classroom-style explanation flow.</p>
+                    </div>
+                    <div class="showcase-line">
+                        <span class="showcase-kicker">For Visual Learners</span>
+                        <p>Topic-specific charts, concept maps, slides, and supporting video links.</p>
+                    </div>
+                    <div class="showcase-line">
+                        <span class="showcase-kicker">For Practice</span>
+                        <p>MCQs and broad questions with instant scoring and saved output history.</p>
+                    </div>
+                    <div class="showcase-line">
+                        <span class="showcase-kicker">For Clarity</span>
+                        <p>A cleaner, larger interface designed to feel like a real product, not a demo form.</p>
+                    </div>
+                    <div class="showcase-line">
+                        <span class="showcase-kicker">For Teaching</span>
+                        <p>Structured output that can be shown to faculty, reviewers, or classmates as a polished academic system.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section about-section" id="about">
+            <div class="shell editorial-grid">
+                <div class="section-intro">
+                    <p class="eyebrow">About</p>
+                    <h2>Built around how students actually revise.</h2>
+                    <p class="section-copy">
+                        APSG takes raw learning material, restructures it into clearer explanations, and rewards progress.
+                        Each section is designed to feel like a focused part of a complete academic product.
+                    </p>
+                    <p class="section-copy">
+                        The system combines adaptive presentation, personalized summaries, and gamified reinforcement so that
+                        students can read, view, practice, and revisit the same concept in multiple ways. This makes APSG
+                        suitable for demonstration to teachers as well as practical student use.
+                    </p>
+                    <div class="about-feature-grid">
+                        <article class="about-feature-card">
+                            <h3>Topic Continuity</h3>
+                            <p>The summary, visuals, quiz engine, and chatbot all revolve around the same current study topic so the experience stays coherent.</p>
+                        </article>
+                        <article class="about-feature-card">
+                            <h3>Revision Depth</h3>
+                            <p>Students can move from reading to visual recall to testing without leaving the same workspace or losing context.</p>
+                        </article>
+                        <article class="about-feature-card">
+                            <h3>Presentation Quality</h3>
+                            <p>The UI and outputs are designed to look more like a polished academic product than a small prototype.</p>
+                        </article>
+                        <article class="about-feature-card">
+                            <h3>Flexible Inputs</h3>
+                            <p>Typed notes, PDF text, audio transcripts, YouTube lessons, and educational images can all be turned into study material.</p>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="about-column">
+                    <div class="about-flow">
+                    <article class="flow-row">
+                        <span>01</span>
+                        <div>
+                            <h3>Capture</h3>
+                            <p>Bring in notes, PDFs, YouTube lessons, audio explanations, or diagrams and images.</p>
+                        </div>
+                    </article>
+                    <article class="flow-row">
+                        <span>02</span>
+                        <div>
+                            <h3>Transform</h3>
+                            <p>Generate one polished summary style tuned to visual, audio, or theory-based learning.</p>
+                        </div>
+                    </article>
+                    <article class="flow-row">
+                        <span>03</span>
+                        <div>
+                            <h3>Reinforce</h3>
+                            <p>Use quizzes, descriptive questions, saved outputs, and chatbot follow-ups to deepen understanding.</p>
+                        </div>
+                    </article>
+                    </div>
+                    <div class="about-panel">
+                        <p class="eyebrow">Why It Matters</p>
+                        <h3>One concept, many ways to understand it.</h3>
+                        <p class="section-copy">APSG is especially useful when a student understands a topic partially but needs different representations to make it stick. Instead of searching for separate tools, the learner gets explanation, visualization, retrieval practice, and guided follow-up in one structured journey.</p>
+                        <ul class="about-list">
+                            <li>Better for revision before exams or presentations</li>
+                            <li>Useful for project demonstrations and academic review sessions</li>
+                            <li>Encourages retention through repeated topic contact instead of passive reading</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section analysis-section" id="analysis">
+            <div class="shell analysis-layout">
+                <aside class="history-pane">
+                    {% if has_output %}
+                        <div class="output-column-nav sidebar-study-nav">
+                            <p class="eyebrow">Sections</p>
+                            <h3>Study Panels</h3>
+                            <a href="#summary-panel" class="output-nav-link">Summary</a>
+                            <a href="#notes-panel" class="output-nav-link">Notes</a>
+                            <a href="#quiz-panel" class="output-nav-link">Quiz</a>
+                        </div>
+                    {% endif %}
+                    <div class="pane-heading">
+                        <p class="eyebrow">History</p>
+                        <h2>Previous Outputs</h2>
+                    </div>
+                    <div class="history-list">
+                        {% if history %}
+                            {% for item in history %}
+                                <article class="history-item">
+                                    <p class="history-time">{{ item.created_at }}</p>
+                                    <h3>{{ item.topic }}</h3>
+                                    <p>{{ item.source }} · {{ item.learner }}</p>
+                                </article>
+                            {% endfor %}
+                        {% else %}
+                            <div class="history-empty">Your processed results will be stored here.</div>
+                        {% endif %}
+                    </div>
+                </aside>
+
+                <div class="analysis-main">
+                    <div class="section-intro">
+                        <p class="eyebrow">Analysis</p>
+                        <h2>Generate study output</h2>
+                        <p class="section-copy">Run the analysis below and the outputs stay on this page. APSG adapts the presentation to the learner and tracks progress with points and badges.</p>
+                    </div>
+
+                    <section class="badge-strip">
+                        <div class="badge-overview">
+                            <p class="eyebrow">Progress</p>
+                            <h3>{{ total_points }} Points Earned</h3>
+                            <p>Points are earned only from quiz performance, so the progress panel reflects actual mastery instead of simple activity.</p>
+                            {% if next_badge %}
+                                <p class="next-badge">Next badge: {{ next_badge.name }} in {{ next_badge.points_needed }} points.</p>
+                            {% endif %}
+                        </div>
+                        <div class="earned-badges">
+                            {% for badge in badge_status %}
+                                <article class="earned-badge {% if not badge.earned %}muted{% endif %}">
+                                    <p>{{ badge.name }}</p>
+                                    <span>{{ badge.description }}</span>
+                                    <strong>{{ badge.points }} points {% if badge.earned %}· Achieved{% else %}· Locked{% endif %}</strong>
+                                </article>
+                            {% endfor %}
+                        </div>
+                    </section>
+
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            <div class="messages">
+                                {% for category, message in messages %}
+                                    <div class="message {{ category }}">{{ message }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+
+                    <form method="POST" action="{{ url_for('process') }}" enctype="multipart/form-data" class="analysis-form">
+                        <div class="form-topline">
+                            <label>
+                                <span>Input Type</span>
+                                <select name="input_type" id="inputType">
+                                    <option value="Text" {% if defaults.input_type == "Text" %}selected{% endif %}>Text</option>
+                                    <option value="Video" {% if defaults.input_type == "Video" %}selected{% endif %}>Video</option>
+                                    <option value="Audio" {% if defaults.input_type == "Audio" %}selected{% endif %}>Audio</option>
+                                    <option value="Image" {% if defaults.input_type == "Image" %}selected{% endif %}>Image</option>
+                                </select>
+                            </label>
+
+                            <label>
+                                <span>Learning Preference</span>
+                                <select name="learner_type">
+                                    <option value="Visual" {% if defaults.learner_type == "Visual" %}selected{% endif %}>Visual</option>
+                                    <option value="Audio" {% if defaults.learner_type == "Audio" %}selected{% endif %}>Audio</option>
+                                    <option value="Theory" {% if defaults.learner_type == "Theory" %}selected{% endif %}>Theory</option>
+                                </select>
+                            </label>
+
+                            <label>
+                                <span>Question Type</span>
+                                <select name="question_type">
+                                    <option value="MCQ" {% if defaults.question_type == "MCQ" %}selected{% endif %}>MCQ</option>
+                                    <option value="Broad Questions" {% if defaults.question_type == "Broad Questions" %}selected{% endif %}>Broad Questions</option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <section id="textSection" class="input-section">
+                            <div class="toggle-bar">
+                                <label class="pill">
+                                    <input type="radio" name="text_option" value="Type Text" {% if defaults.text_option == "Type Text" %}checked{% endif %}>
+                                    <span>Type Text</span>
+                                </label>
+                                <label class="pill">
+                                    <input type="radio" name="text_option" value="Upload PDF" {% if defaults.text_option == "Upload PDF" %}checked{% endif %}>
+                                    <span>Upload PDF</span>
+                                </label>
+                                <label class="pill">
+                                    <input type="radio" name="text_option" value="Upload DOCX" {% if defaults.text_option == "Upload DOCX" %}checked{% endif %}>
+                                    <span>Upload DOCX</span>
+                                </label>
+                            </div>
+
+                            <div id="typedTextWrap" class="sub-input">
+                                <textarea name="text_input" rows="8" placeholder="Paste your topic notes, article, or concept here..."></textarea>
+                            </div>
+
+                            <div id="pdfWrap" class="sub-input">
+                                <input type="file" name="pdf_file" accept=".pdf">
+                            </div>
+
+                            <div id="docxWrap" class="sub-input">
+                                <input type="file" name="docx_file" accept=".docx" {% if not docx_available %}disabled{% endif %}>
+                                {% if not docx_available %}
+                                    <p class="helper">`python-docx` is not installed, so DOCX upload is currently unavailable.</p>
+                                {% endif %}
+                            </div>
+                        </section>
+
+                        <section id="videoSection" class="input-section">
+                            <input type="url" name="youtube_url" placeholder="Paste a YouTube URL">
+                        </section>
+
+                        <section id="audioSection" class="input-section">
+                            <input type="file" name="audio_file" accept=".wav,.mp3">
+                        </section>
+
+                        <section id="imageSection" class="input-section">
+                            <input type="file" name="image_file" accept=".jpg,.jpeg,.png">
+                        </section>
+
+                        <div class="actions">
+                            <button type="submit" class="primary">Run Analysis</button>
+                            {% if has_output %}
+                                <a href="#output" class="ghost-link">See Output</a>
+                            {% endif %}
+                        </div>
+                    </form>
+
+                    {% if has_output %}
+                        <form method="POST" action="{{ url_for('reset') }}" class="inline-reset">
+                            <button type="submit" class="ghost">Clear Output</button>
+                        </form>
+                    {% endif %}
+
+                    <section class="output-section" id="output">
+                        <div class="section-intro compact">
+                            <p class="eyebrow">Output</p>
+                            <h2>Generated Results</h2>
+                        </div>
+
+                        {% if has_output %}
+                            <div class="result-meta">
+                                <span class="badge">{{ learner_type }} learner</span>
+                                <span class="badge">{{ processed_input_type }}</span>
+                                {% if prediction %}
+                                    <span class="badge subtle">{{ prediction }}</span>
+                                {% endif %}
+                            </div>
+
+                            <section class="tool-surface output-block" id="summary-panel">
+                                <div class="section-intro compact">
+                                    <p class="eyebrow">Summary</p>
+                                    <h3>Generated Summary</h3>
+                                    <p class="section-copy">This section contains the processed explanation for the selected learning style.</p>
+                                </div>
+                                <div class="output-surface">
+                                    <div class="output-header">
+                                        <div>
+                                            <p class="output-label">Source</p>
+                                            <h3>{{ source_label }}</h3>
+                                        </div>
+                                    </div>
+
+                                    {% if learner_type == "Theory" %}
+                                        <div class="theory-layout">
+                                            <div class="reading-panel">
+                                                <p class="eyebrow">Theory Summary</p>
+                                                <div class="summary-text">{{ summary }}</div>
+                                            </div>
+                                            {% if study_pack and study_pack.key_points %}
+                                                <div class="topic-points single-mode">
+                                                    {% for point in study_pack.key_points %}
+                                                        <article class="topic-point-card">
+                                                            <span>Key Point {{ loop.index }}</span>
+                                                            <p>{{ point }}</p>
+                                                        </article>
+                                                    {% endfor %}
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% elif learner_type == "Audio" %}
+                                        <div class="audio-layout">
+                                            <div class="reading-panel">
+                                                <p class="eyebrow">Audio Podcast</p>
+                                                {% if audio_b64 %}
+                                                    <audio controls class="audio-player">
+                                                        <source src="data:audio/mpeg;base64,{{ audio_b64 }}" type="audio/mpeg">
+                                                    </audio>
+                                                {% else %}
+                                                    <div class="audio-fallback-box">
+                                                        <p>Server audio is unavailable right now, but you can still play the podcast in the browser below.</p>
+                                                    </div>
+                                                {% endif %}
+                                                {% if audio_error %}
+                                                    <p class="helper">{{ audio_error }}</p>
+                                                {% endif %}
+                                                <div class="summary-text">{{ study_pack.audio_script if study_pack else summary }}</div>
+                                                <div class="podcast-controls" data-audio-text="{{ (study_pack.audio_script if study_pack else summary)|e }}">
+                                                    <button type="button" class="ghost podcast-play">Play Podcast</button>
+                                                    <button type="button" class="ghost podcast-stop">Stop Podcast</button>
+                                                </div>
+                                            </div>
+                                            {% if study_pack and study_pack.audio_learning_items %}
+                                                <div class="audio-cards-grid">
+                                                    {% for item in study_pack.audio_learning_items %}
+                                                        <article class="audio-card">
+                                                            <span>{{ item.title }}</span>
+                                                            <h4>{{ item.lead }}</h4>
+                                                            <p>{{ item.content }}</p>
+                                                        </article>
+                                                    {% endfor %}
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% else %}
+                                        <div class="visual-stage">
+                                            <div class="visual-writing">
+                                                <p class="eyebrow">Visual Learning</p>
+                                                <h3>{{ study_pack.topic if study_pack else processed_topic }}</h3>
+                                                {% if study_pack and study_pack.overview %}
+                                                    <p class="section-copy">{{ study_pack.overview }}</p>
+                                                {% endif %}
+                                                <div class="summary-text visual-summary">{{ summary }}</div>
+                                                {% if study_pack and study_pack.visual_learning_path %}
+                                                    <div class="visual-path-grid">
+                                                        {% for item in study_pack.visual_learning_path %}
+                                                            <article class="visual-path-card">
+                                                                <span>{{ item.label }}</span>
+                                                                <h4>{{ item.title }}</h4>
+                                                                <p>{{ item.description }}</p>
+                                                            </article>
+                                                        {% endfor %}
+                                                    </div>
+                                                {% endif %}
+                                                {% if study_pack and study_pack.key_points %}
+                                                    <div class="topic-points">
+                                                        {% for point in study_pack.key_points %}
+                                                            <article class="topic-point-card">
+                                                                <span>Key Point {{ loop.index }}</span>
+                                                                <p>{{ point }}</p>
+                                                            </article>
+                                                        {% endfor %}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                            <div class="resource-rail">
+                                                <article class="rail-item feature-card">
+                                                    <p class="output-label">Topic Video</p>
+                                                    {% if primary_video_thumbnail %}
+                                                        <img class="uploaded-image" src="{{ primary_video_thumbnail }}" alt="Video preview for the current topic">
+                                                    {% endif %}
+                                                    {% if processed_video_url or related_video_url %}
+                                                        <a class="cta-link resource-link" href="{{ processed_video_url or related_video_url }}" target="_blank" rel="noreferrer">Watch Related Explanation</a>
+                                                    {% endif %}
+                                                </article>
+
+                                                {% if processed_image_b64 %}
+                                                    <article class="rail-item">
+                                                        <p class="output-label">Reference Image</p>
+                                                        <img class="uploaded-image" src="data:{{ processed_image_mime }};base64,{{ processed_image_b64 }}" alt="Uploaded topic image">
+                                                    </article>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+
+                                        {% if visual_assets %}
+                                            <div class="media-gallery">
+                                                {% if visual_assets.dashboard %}
+                                                    <figure class="gallery-item wide">
+                                                        <figcaption>Executive Snapshot</figcaption>
+                                                        <img class="slide-frame" src="data:image/png;base64,{{ visual_assets.dashboard }}" alt="Visual dashboard">
+                                                    </figure>
+                                                {% endif %}
+                                                {% if visual_assets.chart %}
+                                                    <figure class="gallery-item">
+                                                        <figcaption>Strategic Chart</figcaption>
+                                                        <img class="slide-frame" src="data:image/png;base64,{{ visual_assets.chart }}" alt="Concept chart">
+                                                    </figure>
+                                                {% endif %}
+                                                {% if visual_assets.concept_map %}
+                                                    <figure class="gallery-item">
+                                                        <figcaption>Relationship Map</figcaption>
+                                                        <img class="slide-frame" src="data:image/png;base64,{{ visual_assets.concept_map }}" alt="Concept map">
+                                                    </figure>
+                                                {% endif %}
+                                            </div>
+                                        {% endif %}
+
+                                        {% if generated_visuals %}
+                                            <div class="section-intro compact">
+                                                <p class="eyebrow">AI Visuals</p>
+                                                <h3>Generated Topic Illustrations</h3>
+                                                <p class="section-copy">These visuals are generated from the current topic to support explanation and presentation quality for visual learners.</p>
+                                            </div>
+                                            <div class="visual-ai-grid">
+                                                {% for item in generated_visuals %}
+                                                    <figure class="gallery-item">
+                                                        <figcaption>{{ item.title }}</figcaption>
+                                                        <img class="slide-frame" src="data:image/png;base64,{{ item.image_b64 }}" alt="AI generated illustration for {{ item.title }}">
+                                                        <p class="visual-note">{{ item.caption }}</p>
+                                                    </figure>
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+
+                                        {% if generated_video and generated_video.video_b64 %}
+                                            <div class="section-intro compact">
+                                                <p class="eyebrow">AI Video</p>
+                                                <h3>Generated Topic Clip</h3>
+                                                <p class="section-copy">APSG uses the Hugging Face API to try generating a short educational video clip for the current topic.</p>
+                                            </div>
+                                            <div class="generated-video-surface">
+                                                <video controls class="generated-topic-video">
+                                                    <source src="data:{{ generated_video.mime }};base64,{{ generated_video.video_b64 }}" type="{{ generated_video.mime }}">
+                                                </video>
+                                                <p class="visual-note">{{ generated_video.caption }}</p>
+                                            </div>
+                                        {% endif %}
+
+                                        {% if study_pack and study_pack.visual_cards %}
+                                            <div class="section-intro compact">
+                                                <p class="eyebrow">Visual Learner Studio</p>
+                                                <h3>Illustrated Topic Understanding</h3>
+                                                <p class="section-copy">Each card below explains a different part of the topic so the learner gets definition, process, and meaning in separate visual language.</p>
+                                            </div>
+                                            <div class="visual-studio-grid">
+                                                {% for card in study_pack.visual_cards %}
+                                                    <article class="visual-studio-card">
+                                                        <span class="visual-studio-label">{{ card.label }}</span>
+                                                        <h4>{{ card.title }}</h4>
+                                                        <p class="visual-studio-focus">{{ card.focus }}</p>
+                                                        <p>{{ card.explanation }}</p>
+                                                        <div class="visual-scene-box">
+                                                            <strong>Illustration Direction</strong>
+                                                            <p>{{ card.scene_prompt }}</p>
+                                                        </div>
+                                                        <p class="visual-note">{{ card.image_note }}</p>
+                                                    </article>
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+
+                                        {% if study_pack and study_pack.visual_memory_boosters %}
+                                            <div class="section-intro compact">
+                                                <p class="eyebrow">Recall Aids</p>
+                                                <h3>Visual Memory Boosters</h3>
+                                                <p class="section-copy">Use these short prompts to turn the topic into a picture, a connection, and a fast revision memory.</p>
+                                            </div>
+                                            <div class="visual-memory-grid">
+                                                {% for item in study_pack.visual_memory_boosters %}
+                                                    <article class="visual-memory-card">
+                                                        <span>{{ item.prompt }}</span>
+                                                        <p>{{ item.content }}</p>
+                                                    </article>
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                    {% endif %}
+                                </div>
+                            </section>
+
+                            <section class="tool-surface output-block notes-surface" id="notes-panel">
+                                <div class="section-intro compact">
+                                    <p class="eyebrow">Notes</p>
+                                    <h3>Private Study Notes</h3>
+                                    <p class="section-copy">Keep written notes for the current topic and record your own voice note or short podcast for revision.</p>
+                                </div>
+                                <div class="notes-workspace" data-topic="{{ processed_topic or 'study-topic' }}">
+                                    <textarea class="notes-textarea" rows="8" placeholder="Write your topic notes here..."></textarea>
+                                    <div class="notes-actions">
+                                        <button type="button" class="primary note-save">Save Notes</button>
+                                        <button type="button" class="ghost note-record">Record Voice Note</button>
+                                        <button type="button" class="ghost note-stop" disabled>Stop Recording</button>
+                                    </div>
+                                    <p class="helper notes-status">Notes for this topic are stored in your browser on this device.</p>
+                                    <audio controls class="notes-audio-preview" hidden></audio>
+                                </div>
+                            </section>
+
+                            <section class="tool-surface output-block quiz-surface" id="quiz-panel">
+                                    <div class="section-intro compact">
+                                        <p class="eyebrow">Quiz</p>
+                                        <h3>Question Generator</h3>
+                                        <p class="section-copy">Generate objective or descriptive questions from the current material and evaluate performance directly inside APSG.</p>
+                                    </div>
+
+                                    <form method="POST" action="{{ url_for('generate_questions_route') }}" class="stack">
+                                        <div class="form-topline three">
+                                            <label>
+                                                <span>Question Type</span>
+                                                <select name="question_type">
+                                                    <option value="MCQ" {% if question_type == "MCQ" %}selected{% endif %}>MCQ</option>
+                                                    <option value="Broad Questions" {% if question_type == "Broad Questions" %}selected{% endif %}>Broad Questions</option>
+                                                </select>
+                                            </label>
+
+                                            <label>
+                                                <span>Difficulty</span>
+                                                <select name="difficulty">
+                                                    <option value="Easy" {% if difficulty == "Easy" %}selected{% endif %}>Easy</option>
+                                                    <option value="Medium" {% if difficulty == "Medium" %}selected{% endif %}>Medium</option>
+                                                    <option value="Hard" {% if difficulty == "Hard" %}selected{% endif %}>Hard</option>
+                                                </select>
+                                            </label>
+
+                                            <label>
+                                                <span>Count</span>
+                                                <input type="number" name="num_questions" min="1" max="10" value="{{ num_questions }}">
+                                            </label>
+                                        </div>
+                                        <button type="submit" class="primary">Generate Questions</button>
+                                    </form>
+
+                                    {% if quiz_data and quiz_topic == processed_topic %}
+                                        <form method="POST" action="{{ url_for('submit_mcq') }}" class="quiz-form">
+                                            <p class="output-label">Quiz Topic: {{ quiz_topic }}</p>
+                                            {% for item in quiz_data %}
+                                                {% set question_index = loop.index0 %}
+                                                <div class="question-card">
+                                                    <h3>Q{{ loop.index }}. {{ item.question }}</h3>
+                                                    <div class="options">
+                                                        {% for option in item.options %}
+                                                            {% set option_letter = option[0] %}
+                                                            <label class="option-row">
+                                                                <input type="radio" name="answer_{{ question_index }}" value="{{ option_letter }}" required>
+                                                                <span>{{ option }}</span>
+                                                            </label>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                            <button type="submit" class="primary">Submit Answers</button>
+                                        </form>
+                                    {% endif %}
+
+                                    {% if quiz_score is not none %}
+                                        <div class="reading-panel">
+                                            <p><strong>Score:</strong> {{ quiz_score }}/{{ quiz_data|length }}</p>
+                                            <p><strong>Reward Points:</strong> {{ quiz_reward }}</p>
+                                            <p>{{ quiz_score }} correct answers x {{ points_per_question }} points = {{ quiz_reward }}</p>
+                                        </div>
+                                    {% endif %}
+
+                                    {% if broad_questions and broad_topic == processed_topic %}
+                                        <form method="POST" action="{{ url_for('submit_broad') }}" class="quiz-form">
+                                            <p class="output-label">Quiz Topic: {{ broad_topic }}</p>
+                                            {% for question in broad_questions %}
+                                                <div class="question-card">
+                                                    <h3>Q{{ loop.index }}. {{ question }}</h3>
+                                                    <textarea name="broad_answer_{{ loop.index0 }}" rows="6" placeholder="Write your answer here..." required></textarea>
+                                                </div>
+                                            {% endfor %}
+                                            <button type="submit" class="primary">Evaluate Answers</button>
+                                        </form>
+                                    {% endif %}
+
+                                    {% if broad_score is not none %}
+                                        <div class="reading-panel">
+                                            <p><strong>Score:</strong> {{ broad_score }}/{{ broad_questions|length }}</p>
+                                            <p><strong>Reward Points:</strong> {{ broad_reward }}</p>
+                                            <p>{{ broad_score }} correct answers x {{ points_per_question }} points = {{ broad_reward }}</p>
+                                            {% for item in broad_results %}
+                                                <p><strong>Q{{ loop.index }}:</strong> {% if item.score == 1 %}Accepted{% else %}Needs improvement{% endif %}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                    </section>
+                        {% else %}
+                            <div class="empty-state">
+                                <h3>No output yet</h3>
+                                <p>Run the analysis once and your summary, visuals, chatbot context, and practice tools will appear here.</p>
+                            </div>
+                        {% endif %}
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section contact-section" id="contact">
+            <div class="shell contact-layout">
+                <div class="section-intro">
+                    <p class="eyebrow">Contact</p>
+                    <h2>Drop a message.</h2>
+                    <p class="section-copy">Use the form for academic feedback, project review notes, or feature suggestions that can improve APSG further.</p>
+                </div>
+
+                <div class="contact-grid">
+                    <form method="POST" action="{{ url_for('contact') }}" class="contact-form">
+                        <label>
+                            <span>Name</span>
+                            <input type="text" name="name" placeholder="Your name">
+                        </label>
+                        <label>
+                            <span>Email</span>
+                            <input type="email" name="email" placeholder="your@email.com">
+                        </label>
+                        <label>
+                            <span>Message</span>
+                            <textarea name="message" rows="8" placeholder="Write the message you want to drop..."></textarea>
+                        </label>
+                        <button type="submit" class="primary">Send Message</button>
+                    </form>
+
+                    <div class="contact-log">
+                        <h3>Recent Messages</h3>
+                        {% if contact_messages %}
+                            {% for item in contact_messages %}
+                                <article class="history-item">
+                                    <p class="history-time">{{ item.created_at }}</p>
+                                    <h3>{{ item.name }}</h3>
+                                    <p>{{ item.email }}</p>
+                                    <div class="history-summary">{{ item.message }}</div>
+                                </article>
+                            {% endfor %}
+                        {% else %}
+                            <div class="history-empty">No contact messages recorded yet.</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="chat-widget" id="chatWidget">
+        <button type="button" class="chat-widget-toggle" id="chatWidgetToggle" aria-expanded="false" aria-controls="chatWidgetPanel">
+            Topic Assistant
+        </button>
+        <section class="chat-widget-panel" id="chatWidgetPanel" hidden>
+            <div class="chat-widget-header">
+                <div>
+                    <p class="eyebrow">Assistant</p>
+                    <h3>Stay On Topic</h3>
+                </div>
+                <button type="button" class="chat-widget-close" id="chatWidgetClose" aria-label="Close chatbot">Close Chat</button>
+            </div>
+            <div class="chat-widget-body">
+                {% if chat_messages %}
+                    {% for item in chat_messages %}
+                        <div class="chat-bubble {{ item.role }}">
+                            <span>{{ item.role|title }}</span>
+                            <p>{{ item.content }}</p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="history-empty">Ask about the current topic and the assistant will stay grounded in your latest summary, visuals, and study context.</div>
+                {% endif %}
+            </div>
+            <form method="POST" action="{{ url_for('chat') }}" class="chat-form compact-chat-form">
+                <textarea name="chat_message" rows="4" placeholder="Type your question here..."></textarea>
+                <div class="chat-actions">
+                    <button type="submit" class="primary">Send</button>
+                    <button type="button" class="ghost chat-widget-close-secondary" id="chatWidgetCloseSecondary">Close Chat</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

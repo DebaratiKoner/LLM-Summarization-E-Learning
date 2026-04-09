@@ -1,0 +1,14 @@
+flask
+google-generativeai
+python-dotenv
+joblib
+youtube-transcript-api
+Pillow
+SpeechRecognition
+gTTS
+PyPDF2
+python-docx
+moviepy
+soundfile
+graphviz
+
